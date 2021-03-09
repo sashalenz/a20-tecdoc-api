@@ -1,22 +1,23 @@
 {
-    "name": ":vendor_name/:package_name",
-    "description": ":package_description",
+    "name": "lenzapp/a20-tecdoc-api",
+    "description": "Client for tecdoc API",
     "keywords": [
-        ":vendor_name",
-        ":package_name"
+        "lenzapp",
+        "a20-tecdoc-api"
     ],
-    "homepage": "https://github.com/:vendor_name/:package_name",
+    "homepage": "https://github.com/lenzapp/a20-tecdoc-api",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
+            "name": "Oleksandr Petrovskyi",
+            "email": "sashalenz@gmail.com",
             "role": "Developer"
         }
     ],
     "require": {
         "php": "^7.4|^8.0",
         "spatie/laravel-package-tools": "^1.1",
+        "spatie/data-transfer-object": "^2.8",
         "illuminate/contracts": "^8.0"
     },
     "require-dev": {
@@ -27,13 +28,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\Skeleton\\": "src",
-            "Spatie\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Sashalenz\\Tecdoc\\": "src",
+            "Sashalenz\\Tecdoc\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\Skeleton\\Tests\\": "tests"
+            "Sashalenz\\Tecdoc\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -47,11 +48,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spatie\\Skeleton\\SkeletonServiceProvider"
-            ],
-            "aliases": {
-                "Skeleton": "Spatie\\Skeleton\\SkeletonFacade"
-            }
+                "Sashalenz\\Tecdoc\\TecdocServiceProvider"
+            ]
         }
     },
     "minimum-stability": "dev",
