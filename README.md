@@ -1,34 +1,19 @@
-# Client for tecdoc API
+# Client for Tecdoc API
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/lenzapp/a20-tecdoc-api.svg?style=flat-square)](https://packagist.org/packages/lenzapp/a20-tecdoc-api)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/lenzapp/a20-tecdoc-api/run-tests?label=tests)](https://github.com/lenzapp/a20-tecdoc-api/actions?query=workflow%3ATests+branch%3Amaster)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/lenzapp/a20-tecdoc-api/Check%20&%20fix%20styling?label=code%20style)](https://github.com/lenzapp/a20-tecdoc-api/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
-[![Total Downloads](https://img.shields.io/packagist/dt/lenzapp/a20-tecdoc-api.svg?style=flat-square)](https://packagist.org/packages/lenzapp/a20-tecdoc-api)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/sashalenz/a20-tecdoc-api.svg?style=flat-square)](https://packagist.org/packages/sashalenz/a20-tecdoc-api)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/sashalenz/a20-tecdoc-api/run-tests?label=tests)](https://github.com/sashalenz/a20-tecdoc-api/actions?query=workflow%3ATests+branch%3Amaster)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/sashalenz/a20-tecdoc-api/Check%20&%20fix%20styling?label=code%20style)](https://github.com/sashalenz/a20-tecdoc-api/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
+[![Total Downloads](https://img.shields.io/packagist/dt/sashalenz/a20-tecdoc-api.svg?style=flat-square)](https://packagist.org/packages/sashalenz/a20-tecdoc-api)
 
 
 This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/package-a20-tecdoc-api-laravel.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/package-a20-tecdoc-api-laravel)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require lenzapp/a20-tecdoc-api
-```
-
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --provider="Sashalenz\Tecdoc\TecdocServiceProvider" --tag="a20-tecdoc-api-migrations"
-php artisan migrate
+composer require sashalenz/a20-tecdoc-api
 ```
 
 You can publish the config file with:
@@ -40,14 +25,17 @@ This is the contents of the published config file:
 
 ```php
 return [
+    'url' => env('TECDOC_URL', null),
+    'key' => env('TECDOC_KEY', null),
+    'middleware' => env('TECDOC_ROUTE_MIDDLEWARE', 'web')
 ];
 ```
 
 ## Usage
 
 ```php
-$a20-tecdoc-api = new Sashalenz\Tecdoc();
-echo $a20-tecdoc-api->echoPhrase('Hello, Sashalenz!');
+$tecdocBrand = new Sashalenz\Tecdoc\ApiModels\Brand();
+echo $tecdocBrand->get('BMW');
 ```
 
 ## Testing
@@ -71,7 +59,6 @@ Please review [our security policy](../../security/policy) on how to report secu
 ## Credits
 
 - [Oleksandr Petrovskyi](https://github.com/sashalenz)
-- [All Contributors](../../contributors)
 
 ## License
 
