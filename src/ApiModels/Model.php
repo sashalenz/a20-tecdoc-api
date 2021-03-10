@@ -15,13 +15,13 @@ final class Model extends Tecdoc
      * @return Collection
      * @throws TecdocException
      */
-    public function get($brandId, ?string $search = ''): Collection
+    public function get($brandId, ?string $search = null): Collection
     {
         return $this
             ->search($search)
             ->property('manufacturer_id', $brandId)
             ->request('getModels')
-            ->map(fn ($model) => ModelDataTransferObject::arrayOf($model))
+            ->map(fn (array $model) => ModelDataTransferObject::fromArray($model))
             ->values();
     }
 

@@ -15,13 +15,13 @@ final class Vehicle extends Tecdoc
      * @return Collection
      * @throws TecdocException
      */
-    public function get($modelId, ?string $search = ''): Collection
+    public function get($modelId, ?string $search = null): Collection
     {
         return $this
             ->search($search)
             ->property('model_id', $modelId)
             ->request('getPassangerCars')
-            ->map(fn ($vehicle) => VehicleDataTransferObject::arrayOf($vehicle))
+            ->map(fn (array $vehicle) => VehicleDataTransferObject::fromArray($vehicle))
             ->values();
     }
 

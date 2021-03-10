@@ -8,12 +8,14 @@ class BrandDataTransferObject extends FlexibleDataTransferObject
 {
     public int $id;
     public string $name;
+    public string $description;
 
     public static function fromArray(array $array): self
     {
         return new self([
-            'id' => $array['id'],
-            'name' => $array['name']
+            'id' => (int)$array['id'],
+            'name' => $array['description'],
+            'description' => $array['description']
         ]);
     }
 

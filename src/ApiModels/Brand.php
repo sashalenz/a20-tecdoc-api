@@ -14,12 +14,12 @@ final class Brand extends Tecdoc
      * @return Collection
      * @throws TecdocException
      */
-    public function get(?string $search = ''): Collection
+    public function get(?string $search = null): Collection
     {
         return $this
             ->search($search)
             ->request('getManufacturers')
-            ->map(fn ($brand) => BrandDataTransferObject::arrayOf($brand))
+            ->map(fn (array $brand) => BrandDataTransferObject::fromArray($brand))
             ->values();
     }
 }

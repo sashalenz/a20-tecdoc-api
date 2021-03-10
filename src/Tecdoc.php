@@ -15,7 +15,7 @@ abstract class Tecdoc
 
     protected array $properties = [];
 
-    protected function search(string $search): self
+    protected function search(?string $search = null): self
     {
         $this->properties['search'] = $search;
         return $this;
@@ -35,18 +35,17 @@ abstract class Tecdoc
     protected function request(string $url): Collection
     {
         try {
-        $response = Http::timeout(self::TIMEOUT)
-            ->retry(self::RETRY_TIMES, self::RETRY_SLEEP)
-            ->withHeaders([
-                'Authorization' => 'Bearer ' . config('a20-tecdoc-api.key'),
-                'Accept' => 'application/json'
-            ])
-            ->post(config('a20-tecdoc-api.url') . $url, $this->properties)
-            ->throw();
+            return Http::timeout(self::TIMEOUT)
+                ->retry(self::RETRY_TIMES, self::RETRY_SLEEP)
+                ->withHeaders([
+                    'Authorization' => 'Bearer ' . config('a20-tecdoc-api.key'),
+                    'Accept' => 'application/json'
+                ])
+                ->post(config('a20-tecdoc-api.url') . $url, $this->properties)
+                ->throw()
+                ->collect();
         } catch (RequestException $e) {
             throw new TecdocException('Request error. '.$e->getMessage());
         }
-
-        return collect($response);
     }
 }
