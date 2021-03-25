@@ -7,7 +7,7 @@ use Sashalenz\Tecdoc\Controllers\VehicleController;
 
 Route::middleware(config('a20-tecdoc-api.middleware'))
     ->prefix('tecdoc')
-    ->as('a20-tecdoc-api')
+    ->as('a20-tecdoc-api.')
     ->group(function (Router $router) {
         $router->as('brands.')
             ->prefix('brands')
