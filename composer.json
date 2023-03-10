@@ -1,0 +1,59 @@
+{
+    "name": "sashalenz/a20-tecdoc-api",
+    "description": "Client for tecdoc API",
+    "keywords": [
+        "lenzapp",
+        "a20-tecdoc-api"
+    ],
+    "homepage": "https://github.com/lenzapp/a20-tecdoc-api",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Oleksandr Petrovskyi",
+            "email": "sashalenz@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1|^8.2",
+        "illuminate/contracts": "^9.0|^10.0",
+        "illuminate/http": "^9.0|^10.0",
+        "xitedev/wireforms": "@dev || ^1.1",
+        "spatie/laravel-data": "^2.2",
+        "spatie/laravel-package-tools": "^1.14"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../*",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Sashalenz\\Tecdoc\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Sashalenz\\Tecdoc\\Tests\\": "tests"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sashalenz\\Tecdoc\\TecdocServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
