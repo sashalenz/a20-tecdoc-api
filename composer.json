@@ -19,7 +19,7 @@
         "illuminate/contracts": "^9.0|^10.0",
         "illuminate/http": "^9.0|^10.0",
         "xitedev/wireforms": "@dev || ^1.1",
-        "spatie/laravel-data": "^2.2",
+        "spatie/laravel-data": "^3.1",
         "spatie/laravel-package-tools": "^1.14"
     },
     "require-dev": {
