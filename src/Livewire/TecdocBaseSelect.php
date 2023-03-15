@@ -80,11 +80,6 @@ abstract class TecdocBaseSelect extends BaseSelect
         $this->isOpen = false;
     }
 
-    public function showResults(): bool
-    {
-        return $this->searchable && (! is_int($this->minInputLength) || $this->minInputLength < Str::length($this->search));
-    }
-
     public function getSelectedValueProperty(): ?string
     {
         return $this->value;
